@@ -1,28 +1,200 @@
-//====================================================================================================
+.header {
+	@include adaptiveValue('padding-top', 32, 10);
+	@include adaptiveValue('padding-bottom', 32, 10);
+	color: $colorWhite;
+	// .header__container-big
+	&__container-big {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		@include adaptiveValue('column-gap', 30, 15);
+		row-gap: rem(10);
+	}
+	// .header__wrapper-logo
+	&__wrapper-logo {
+		flex: 0 1 rem(365);
+	}
+	// .header__logo
+	&__logo {
+		font-family: 'Cormorant Upright';
+		font-weight: 700;
+		font-size: 44px;
+		@include adaptiveValue('font-size', 44, 20);
+		line-height: 130%;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+	}
+	// .header__menu
+	&__menu {
+		flex: 1 1 auto;
+		min-width: rem(420);
+	}
+	// .header__authorization
+	&__authorization {
+		flex: 0 1 rem(365);
+	}
+	// .header__menu-icon
+	&__menu-icon {
+	}
+}
 
-//====================================================================================================
+.menu {
+	// .menu__body
+	&__body {
+		@media (max-width: $mobile) {
+			width: 100%;
+			height: 120%;
+			position: fixed;
+			top: 0;
+			left: 0;
+			background: $colorWhite;
+		}
+	}
+	// .menu__list
+	&__list {
+		display: flex;
+		@media (min-width: $mobile) {
+			align-items: center;
+			justify-content: center;
+			@include adaptiveValue('column-gap', 32, 20);
+			row-gap: rem(10);
+			flex-wrap: wrap;
+		}
+		@media (max-width: $mobile) {
+			flex-direction: column;
+			align-items: center;
+			@include adaptiveValue('padding-top', 120, 100);
+			row-gap: rem(20);
+		}
+	}
+	// .menu__item
+	&__item {
+	}
+	// .menu__link
+	&__link {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 175%;
+		letter-spacing: 0.04em;
+		white-space: nowrap;
+		@media (max-width: $mobile) {
+			color: $colorBlackShade-01;
+		}
+	}
+}
+
+.authorization-header {
+	// .authorization-header__wrapper
+	&__wrapper {
+		@media (max-width: $tablet) {
+			position: relative;
+		}
+	}
+	// .authorization-header__title
+	&__title {
+		display: flex;
+		justify-content: flex-end;
+		width: 100%;
+		font-size: rem(25);
+		@media (min-width: $tablet) {
+			display: none;
+		}
+	}
+	// .authorization-header__body
+	&__body {
+		@media (max-width: $tablet) {
+			padding: rem(20);
+			min-width: rem(200);
+			position: absolute;
+			top: calc(100% + 10px);
+			right: 0;
+			background: #000;
+			// border: 1px solid $colorYellow;
+			border-radius: rem(10);
+			box-shadow: 0 0 5px 0 $colorYellow;
+		}
+	}
+	// .authorization-header__list
+	&__list {
+		display: flex;
+		@media (min-width: $tablet) {
+			align-items: center;
+			justify-content: flex-end;
+		}
+		@media (max-width: $tablet) {
+			flex-direction: column;
+			align-items: flex-end;
+			row-gap: rem(20);
+		}
+	}
+	// .authorization-header__item
+	&__item {
+		// .authorization-header__item_log-in
+		&_log-in {
+			@include adaptiveValue('padding-right', 50, 10, 2, 1920, 991.98);
+			@media (min-width: $tablet) {
+				position: relative;
+				&::before {
+					content: '';
+					display: block;
+					position: absolute;
+					top: 50%;
+					right: 0;
+					width: rem(1);
+					min-height: rem(50);
+					background: linear-gradient(
+						rgba(255, 255, 255, 0) 0%,
+						rgba(255, 255, 255, 0.1) 5%,
+						rgba(255, 255, 255, 0.2) 10%,
+						rgba(255, 255, 255, 0.3) 20%,
+						rgba(255, 255, 255, 0.5) 30%,
+						rgba(255, 255, 255, 1) 50%,
+						rgba(255, 255, 255, 0.5) 70%,
+						rgba(255, 255, 255, 0.3) 80%,
+						rgba(255, 255, 255, 0.2) 90%,
+						rgba(255, 255, 255, 0.1) 95%,
+						rgba(255, 255, 255, 0) 100%
+					);
+					transform: translate(0, -50%);
+				}
+			}
+		}
+		// .authorization-header__item_book-table
+		&_book-table {
+			@include adaptiveValue('padding-left', 50, 10, 2, 1920, 991.98);
+		}
+	}
+	// .authorization-header__link
+	&__link {
+		// .authorization-header__link_log-in
+		&_log-in {
+		}
+		// .authorization-header__link_book-table
+		&_book-table {
+		}
+	}
+}
 
 //Burger
-/*
 .icon-menu {
 	display: none;
 	@media (max-width: $mobile) {
 		display: block;
 		position: relative;
-		width: rem(30);
+		flex: 0 0 rem(30);
 		height: rem(18);
 		cursor: pointer;
 		z-index: 5;
 		span,
 		&::before,
 		&::after {
-			content: "";
+			content: '';
 			transition: all 0.3s ease 0s;
 			right: 0;
 			position: absolute;
 			width: 100%;
 			height: rem(2);
-			background-color: #000;
+			background-color: $colorWhite;
 		}
 		&::before {
 			top: 0;
@@ -51,4 +223,3 @@
 		}
 	}
 }
-*/
