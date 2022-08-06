@@ -1,0 +1,30 @@
+// Заголовки, общие БЄМ блоки и прочее...
+.heading {
+	// .heading__title
+	&__title {
+	}
+	// .heading__subtitle
+	&__subtitle {
+	}
+}
+
+.title {
+	// .title_general
+	&_general {
+	}
+	// .title_section
+	&_section {
+	}
+	// .title_block
+	&_block {
+	}
+	// .title__mark
+	&__mark {
+	}
+}
+
+.text {
+	// .text_mark
+	&_mark {
+	}
+}
